@@ -164,3 +164,6 @@
 .hero-stage.hero-rdv{height:566px}
 @media(min-width:701px) and (max-width:960px){.hero-stage.hero-rdv{height:510px}}
 @media(max-width:700px){.hero-stage.hero-rdv{height:492px}}
+/* Bouton « Trouver des clients » : le bloc contact arrive entier sous l'en-tête collant. */
+#contact-premium{scroll-margin-top:40px}
+@media(max-width:700px){#contact-premium{scroll-margin-top:36px}}
