@@ -105,3 +105,62 @@
 .premium-guarantee h3+p{font-size:15px;line-height:1.8;color:var(--body);margin-top:10px;max-width:860px}
 .premium-guarantee-note{font-size:13px;line-height:1.7;color:#4b5563;margin-top:14px;padding-top:14px;border-top:1px solid rgba(4,120,87,.12);max-width:860px}
 @media(max-width:700px){.premium-guarantee{flex-direction:column;gap:16px;padding:24px 21px;border-radius:22px}.premium-guarantee-icon{width:48px;height:48px}.premium-guarantee h3+p{font-size:14px}}
+/* Hero rendez-vous: agenda fictif d'une vague de prospection. */
+.hero-rdv .rdv-icon{width:38px;height:38px;border-radius:10px}
+.hero-rdv .rdv-icon .icon{width:21px;height:21px}
+.rdv-live{position:relative;width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px #d1fae5;margin-right:3px}
+.rdv-funnel{display:flex;align-items:stretch;gap:6px;padding:12px 18px 14px;border-top:1px solid #f3f4f6;border-bottom:1px solid #eff1f2;background:#f9fafb}
+.rdv-step{flex:1;min-width:0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:8px;align-items:center;padding:8px 10px;background:#fff;border:1px solid #edf1ef;border-radius:10px}
+.rdv-step-icon{grid-row:span 2;width:26px;height:26px;border-radius:8px;background:var(--mint);color:var(--green-dark);display:grid;place-items:center}
+.rdv-step-icon .icon{width:14px;height:14px}
+.rdv-step b{font-size:17px;line-height:1.05;font-weight:800;letter-spacing:-.04em;color:var(--ink);font-variant-numeric:tabular-nums}
+.rdv-step>span:last-child{font-size:8px;line-height:1.25;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rdv-step.is-goal{background:var(--green-dark);border-color:var(--green-dark)}
+.rdv-step.is-goal b,.rdv-step.is-goal>span:last-child{color:#fff}
+.rdv-step.is-goal .rdv-step-icon{background:rgba(255,255,255,.16);color:#fff}
+.rdv-arrow{align-self:center;width:13px;height:13px;flex-shrink:0;fill:none;stroke:#9ca3af;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rdv-cal{padding:0 0 14px;font-size:8px}
+.rdv-cal-head{display:grid;grid-template-columns:38px repeat(5,1fr);height:30px;align-items:center;color:var(--muted);font-weight:600;letter-spacing:.02em;border-bottom:1px solid #edf1ef}
+.rdv-cal-head>span{padding-left:8px}
+.rdv-cal-head>span:nth-child(5){color:var(--green-dark)}
+.rdv-cal-body{display:grid;grid-template-columns:38px 1fr}
+.rdv-hours{display:grid;grid-template-rows:repeat(4,48px);background:#f9fafb;border-right:1px solid #edf1ef}
+.rdv-hours>span{text-align:center;padding-top:5px;color:var(--muted);font-size:7.5px}
+.rdv-grid{position:relative;display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(4,48px);background-image:linear-gradient(#edf1ef 1px,transparent 1px),linear-gradient(90deg,#edf1ef 1px,transparent 1px);background-size:100% 48px,20% 100%;background-position:0 -1px,-1px 0}
+.rdv-event{position:relative;z-index:1;align-self:center;margin:0 6px;padding:5px 7px 5px 9px;border-radius:7px;background:var(--mint);color:#065f46;font-weight:600;line-height:1.3;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;box-shadow:inset 3px 0 0 var(--green)}
+.rdv-event b{display:block;font-size:7.5px;font-weight:700;color:var(--green-dark)}
+.rdv-event small{display:block;font-size:7px;font-weight:500;color:var(--muted)}
+.rdv-event.ev-1{grid-column:2;grid-row:2}
+.rdv-event.ev-3{grid-column:1;grid-row:3}
+.rdv-event.ev-2{grid-column:4;grid-row:1;background:var(--green);color:#fff;box-shadow:0 0 0 3px #a7f3d0,0 8px 18px rgba(4,120,87,.25)}
+.rdv-event.ev-2 b,.rdv-event.ev-2 small{color:#ecfdf5}
+.hero-rdv .sheet-tab{border-radius:0}
+.rdv-card{padding:20px 20px 16px}
+.rdv-when{display:flex;align-items:center;gap:12px;margin-top:16px}
+.rdv-date{width:46px;height:52px;border-radius:11px;background:var(--green-dark);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 18px rgba(4,120,87,.22)}
+.rdv-date small{font-size:7px;font-weight:700;letter-spacing:.08em;opacity:.85;line-height:1}
+.rdv-date b{font-size:21px;font-weight:800;letter-spacing:-.04em;line-height:1.05}
+.rdv-when-text{min-width:0}
+.rdv-when-text b{display:block;font-size:12px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.rdv-when-text span{display:flex;align-items:center;gap:5px;margin-top:4px;font-size:9px;color:var(--muted)}
+.rdv-when-text .icon{width:12px;height:12px;color:var(--green-dark)}
+.rdv-need{display:flex;justify-content:space-between;align-items:center;margin-top:13px;padding:8px 10px;border-radius:9px;background:#f9fafb;border:1px solid var(--line);font-size:9px;color:var(--muted)}
+.rdv-need b{font-size:9px;font-weight:650;color:#065f46;background:#d1fae5;padding:3px 7px;border-radius:5px}
+.rdv-card{top:318px}
+.rdv-need{margin-bottom:2px}
+@media(prefers-reduced-motion:no-preference){.rdv-live:after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--green);animation:rdv-pulse 2.2s var(--ease) infinite}.motion-ready .hero-stage:not(.is-visible) .rdv-event{opacity:0;transform:translateY(6px)}.rdv-event{transition:opacity .6s var(--ease),transform .6s var(--ease)}.rdv-event.ev-1{transition-delay:.25s}.rdv-event.ev-3{transition-delay:.4s}.rdv-event.ev-2{transition-delay:.6s}}
+@keyframes rdv-pulse{0%{transform:scale(.6);opacity:.8}80%,100%{transform:scale(1.9);opacity:0}}
+@media(max-width:700px){.rdv-long{display:none}.hero-stage.hero-rdv{height:470px}.hero-rdv .rdv-card{top:262px}.rdv-funnel{padding:10px 10px 11px;gap:4px}.rdv-step{padding:6px 6px;column-gap:5px}.rdv-step-icon{width:20px;height:20px;border-radius:6px}.rdv-step-icon .icon{width:11px;height:11px}.rdv-step b{font-size:14px}.rdv-step>span:last-child{font-size:7px}.rdv-arrow{width:10px;height:10px}.rdv-cal-head{grid-template-columns:28px repeat(5,1fr);height:24px;font-size:7px}.rdv-cal-head>span{padding-left:5px}.rdv-cal-body{grid-template-columns:28px 1fr}.rdv-hours,.rdv-grid{grid-template-rows:repeat(4,32px)}.rdv-grid{background-size:100% 32px,20% 100%}.rdv-hours>span{font-size:6.5px}.rdv-event{margin:0 4px;padding:4px 5px 4px 7px;font-size:6.5px}.rdv-event b{font-size:6.5px}.rdv-event small{display:none}.hero-rdv .rdv-icon{width:30px;height:30px;border-radius:8px}.hero-rdv .rdv-icon .icon{width:17px;height:17px}.rdv-card{padding:16px 15px 13px}.rdv-when{margin-top:12px;gap:9px}.rdv-date{width:38px;height:44px}.rdv-date b{font-size:17px}.rdv-when-text b{font-size:10.5px}.rdv-when-text span{font-size:8px}.rdv-need{margin-top:10px;padding:6px 8px;font-size:8px}.rdv-need b{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.rdv-event{opacity:1!important;transform:none!important}}
+.rdv-step b.rdv-word{grid-row:span 2;font-size:12.5px;font-weight:700;letter-spacing:-.015em;line-height:1.2;white-space:nowrap}
+@media(max-width:700px){.rdv-step b.rdv-word{font-size:9px;letter-spacing:-.01em}.rdv-step.is-goal{padding-right:5px}}
+.rdv-card .rdv-label{position:static;display:inline-flex;align-items:center;gap:5px;margin-bottom:12px;font-size:7.5px;line-height:1;padding:5px 8px 5px 7px;border-radius:99px}
+.rdv-label-dot{width:5px;height:5px;border-radius:50%;background:var(--green)}
+@media(max-width:700px){.rdv-card .rdv-label{margin-bottom:9px;font-size:7px;padding:4px 7px 4px 6px}}
+.hero-rdv .rdv-card{top:304px;padding-top:16px}
+.rdv-card .rdv-label{margin-bottom:10px}
+.rdv-card .rdv-when{margin-top:13px}
+@media(max-width:700px){.hero-rdv .rdv-card{top:252px;padding-top:13px}.rdv-card .rdv-label{margin-bottom:8px}.rdv-card .rdv-when{margin-top:10px}}
+.hero-stage.hero-rdv{height:566px}
+@media(min-width:701px) and (max-width:960px){.hero-stage.hero-rdv{height:510px}}
+@media(max-width:700px){.hero-stage.hero-rdv{height:492px}}

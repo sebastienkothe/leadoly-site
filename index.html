@@ -189,7 +189,7 @@
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 3v6c0 5-8 11-8 11S4 16 4 11V5Z"/><path d="m8 11 3 3 5-5"/></symbol>
     <symbol id="i-cursor" viewBox="0 0 24 24"><path d="m4 3 6 18 3-8 8-3L4 3Zm9 10 6 6"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="m9 15 2 2 4-4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="m8 5 1.5-2h5L16 5h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/><circle cx="12" cy="12" r="4"/></symbol>
     <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="14" rx="3"/><path d="m15 10 6-4v12l-6-4Z"/></symbol>
     <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></symbol>
@@ -215,28 +215,41 @@
           <div class="hero-actions"><a class="button" href="#premium">Découvrir la prospection clé en main<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           <p class="hero-note"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>Vous gardez la négociation et la signature.</p>
         </div>
-        <figure class="hero-stage" role="img" aria-label="Exemple fictif de liste de prospects dans un tableur, données floutées">
+        <figure class="hero-stage hero-rdv" role="img" aria-label="Exemple fictif : une vague de 60 entreprises contactées qui aboutit à des rendez-vous dans votre agenda">
           <div class="stage-dots" aria-hidden="true"></div><div class="stage-orbit" aria-hidden="true"></div>
-          <div class="product-composition">
-            <div class="sheet-back" aria-hidden="true"></div>
-            <div class="sheet-window">
-              <div class="sheet-titlebar"><span class="sheet-icon"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg></span><div><b>Vos prochains contacts</b><span>Votre niche. Votre ville. Votre liste.</span></div><span class="sheet-status"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Prête à explorer</span></div>
-              <div class="sheet-toolbar"><span>Fichier</span><span>Édition</span><span>Affichage</span><span class="toolbar-divider"></span><span class="toolbar-font">Inter <span aria-hidden="true">⌄</span></span><span class="toolbar-bold">B</span><span class="toolbar-lines" aria-hidden="true">☰</span><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg></div>
-              <div class="formula-bar"><span>A1</span><span class="formula-symbol">ƒx</span><span>Une sélection qui vous ressemble</span></div>
-              <div class="sheet-grid">
-                <table aria-hidden="true"><thead><tr class="column-letters"><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th></tr><tr class="column-headings"><th>1</th><th>Établissement</th><th>Secteur</th><th>Ville</th><th>Note</th><th>Score</th><th>E-mail pro</th><th>Téléphone</th></tr></thead><tbody>
-                  <tr class="selected-row"><th>2</th><td><span class="blurred">Café Fictif des Arcades</span></td><td>Coffee shop</td><td>Montpellier</td><td>4,6</td><td><span class="table-score">8/10</span></td><td><span class="blurred">contact@exemple-fictif.fr</span></td><td><span class="blurred">04 00 00 00 00</span></td></tr>
-                  <tr><th>3</th><td><span class="blurred">Atelier Fictif des Fleurs</span></td><td>Fleuriste</td><td>Montpellier</td><td>4,8</td><td><span class="table-score">9/10</span></td><td><span class="blurred">contact@exemple-fictif.fr</span></td><td><span class="blurred">04 00 00 00 00</span></td></tr>
-                  <tr><th>4</th><td><span class="blurred">Maison Fictive du Pain</span></td><td>Boulangerie</td><td>Montpellier</td><td>4,5</td><td><span class="table-score">7/10</span></td><td><span class="blurred">contact@exemple-fictif.fr</span></td><td><span class="blurred">04 00 00 00 00</span></td></tr>
-                  <tr><th>5</th><td><span class="blurred">Le Bistrot Fictif</span></td><td>Restaurant</td><td>Montpellier</td><td>4,7</td><td><span class="table-score">8/10</span></td><td><span class="blurred">contact@exemple-fictif.fr</span></td><td><span class="blurred">04 00 00 00 00</span></td></tr>
-                </tbody></table>
+          <div class="product-composition" aria-hidden="true">
+            <div class="sheet-back"></div>
+            <div class="sheet-window rdv-window">
+              <div class="sheet-titlebar"><span class="sheet-icon rdv-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><div><b>Vos prochains rendez-vous</b><span>Votre niche. Votre zone. Votre agenda.</span></div><span class="sheet-status"><span class="rdv-live"></span>Vague en cours</span></div>
+              <div class="rdv-funnel">
+                <div class="rdv-step"><span class="rdv-step-icon"><svg class="icon"><use href="#i-message"/></svg></span><b>60</b><span><span class="rdv-long">entreprises </span>contactées</span></div>
+                <svg class="rdv-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                <div class="rdv-step"><span class="rdv-step-icon"><svg class="icon"><use href="#i-activity"/></svg></span><b class="rdv-word">Réponses</b></div>
+                <svg class="rdv-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                <div class="rdv-step is-goal"><span class="rdv-step-icon"><svg class="icon"><use href="#i-calendar"/></svg></span><b class="rdv-word">Rendez-vous</b></div>
               </div>
-              <div class="sheet-bottom"><span class="sheet-add" aria-hidden="true">+</span><span class="sheet-tab"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg>Ma sélection <span aria-hidden="true">⌄</span></span><span class="sheet-bottom-note">Votre Google Sheet</span></div>
+              <div class="rdv-cal">
+                <div class="rdv-cal-head"><span></span><span>Lun.</span><span>Mar.</span><span>Mer.</span><span>Jeu.</span><span>Ven.</span></div>
+                <div class="rdv-cal-body">
+                  <div class="rdv-hours"><span>9 h</span><span>10 h</span><span>11 h</span><span>12 h</span></div>
+                  <div class="rdv-grid">
+                    <span class="rdv-event ev-1"><b>10 h</b>Maison Fictive du Pain<small>Appel</small></span>
+                    <span class="rdv-event ev-2"><b>9 h</b>Café Fictif des Arcades<small>Visio</small></span>
+                    <span class="rdv-event ev-3"><b>11 h</b>Atelier Fictif des Fleurs<small>Rencontre</small></span>
+                  </div>
+                </div>
+              </div>
+              <div class="sheet-bottom"><span class="sheet-tab"><svg class="icon"><use href="#i-calendar"/></svg>Semaine fictive</span><span class="sheet-bottom-note">Vous présentez votre offre, vous signez</span></div>
             </div>
-            <div class="floating-found"><span class="found-check"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><span><b>Le bon contact, au bon endroit.</b><small>Coordonnées pro · Sources publiques</small></span></div>
-            <div class="hero-prospect-card"><div class="mini-card-top"><span class="store-avatar"><svg class="icon" aria-hidden="true"><use href="#i-store"/></svg></span><div><b class="blurred">Café Fictif des Arcades</b><span>Coffee shop · Montpellier</span></div><span class="mini-card-label">FICHE PROSPECT</span></div><div class="mini-score"><span>Besoin d’une CM</span><b>8<span>/10</span></b></div><div class="score-track"><span></span></div><p class="mini-found"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Email pro trouvé<span class="mini-source">Source notée</span></p><div class="mini-contact"><span class="blurred">contact@exemple-fictif.fr</span><span class="blurred">04 00 00 00 00</span></div></div>
+            <div class="floating-found"><span class="found-check"><svg class="icon"><use href="#i-check"/></svg></span><span><b>Rendez-vous confirmé</b><small>Jeu. 9 h · Visio avec la gérante</small></span></div>
+            <div class="hero-prospect-card rdv-card">
+              <span class="mini-card-label rdv-label"><span class="rdv-label-dot"></span>RENDEZ-VOUS</span>
+              <div class="mini-card-top"><span class="store-avatar"><svg class="icon"><use href="#i-store"/></svg></span><div><b>Café Fictif des Arcades</b><span>Coffee shop · Montpellier</span></div></div>
+              <div class="rdv-when"><div class="rdv-date"><small>JEU.</small><b>9</b><small>H</small></div><div class="rdv-when-text"><b>Jeudi · 9 h – 9 h 30</b><span><svg class="icon"><use href="#i-video"/></svg>Visio avec la gérante</span></div></div>
+              <div class="rdv-need"><span>Intérêt exprimé</span><b>Besoin d’une CM</b></div>
+                          </div>
           </div>
-          <figcaption>Exemple fictif · Données personnelles floutées</figcaption>
+          <figcaption>Exemple fictif · Entreprises et chiffres inventés</figcaption>
         </figure>
       </div>
       <div class="reassurance container"><span><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>Votre niche, votre zone</span><span><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Sources publiques notées</span><span><svg class="icon" aria-hidden="true"><use href="#i-cursor"/></svg>Vous négociez et signez en direct</span></div>
