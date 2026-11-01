@@ -40,18 +40,37 @@
       }
     }), { threshold: 0.1 });
     reveals.forEach(element => revealObserver.observe(element));
-    const sections = [...document.querySelectorAll('main > section[id]')];
-    const activeSections = new Map();
-    const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-menu a:not(.button)');
-    const activeObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => activeSections.set(entry.target.id, entry.isIntersecting));
-      const active = sections.find(section => activeSections.get(section.id));
-      navLinks.forEach(link => {
-        if (active && link.hash === '#' + active.id) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
+    const navLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-menu a:not(.button)')];
+    const header = document.querySelector('.site-header, header');
+    const targets = [...new Set(navLinks.map(link => link.hash))]
+      .map(hash => document.getElementById(hash.slice(1)))
+      .filter(Boolean)
+      .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+    const setActive = id => navLinks.forEach(link => {
+      if (id && link.hash === '#' + id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+    let spyFrame = 0;
+    const updateActive = () => {
+      spyFrame = 0;
+      const marker = (header ? header.getBoundingClientRect().bottom : 0) + window.innerHeight * 0.2;
+      let active = null;
+      targets.forEach((target, index) => {
+        const top = target.getBoundingClientRect().top;
+        const section = target.closest('main > section') || target;
+        const next = targets[index + 1];
+        let end = section.getBoundingClientRect().bottom;
+        if (next) end = Math.min(end, next.getBoundingClientRect().top);
+        if (top <= marker && end > marker) active = target.id;
       });
-    }, { rootMargin: '-15% 0px -55% 0px', threshold: 0 });
-    sections.forEach(section => activeObserver.observe(section));
+      setActive(active);
+    };
+    const requestUpdate = () => { if (!spyFrame) spyFrame = requestAnimationFrame(updateActive); };
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('hashchange', requestUpdate);
+    window.addEventListener('load', requestUpdate);
+    requestUpdate();
   }
   const stage = document.querySelector('.hero-stage');
   const finePointer = window.matchMedia('(min-width: 701px) and (hover: hover) and (pointer: fine)');
