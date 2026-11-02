@@ -7,4 +7,10 @@
     <priority>1.0</priority>
     <image:image><image:loc>https://leadoly.fr/assets/og-image.png</image:loc></image:image>
   </url>
+  <url>
+    <loc>https://leadoly.fr/trouver-des-clients-freelance-coach/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
