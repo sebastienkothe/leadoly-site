@@ -1,5 +1,4 @@
 <!doctype html>
-<!-- BROUILLON 02/11/2026 – à valider par Sébastien, NE PAS mettre en ligne tel quel. Emplacement prévu : /trouver-des-clients-freelance-coach/index.html -->
 <html lang="fr">
 <head>
   <meta charset="utf-8">
@@ -131,19 +130,45 @@
 }
   </script>
   <script src="/js/analytics.js" defer></script>
+  <script>
+    document.documentElement.classList.add('js');
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.querySelector('#mobile-menu');
+      const toggle = document.querySelector('.menu-toggle');
+      const setOpen = open => {
+        menu.hidden = !open;
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      };
+      setOpen(false);
+      toggle.hidden = false;
+      toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setOpen(false)));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape' && !menu.hidden) { setOpen(false); toggle.focus(); } });
+      document.addEventListener('click', event => { if (!menu.hidden && !event.target.closest('.site-header')) setOpen(false); });
+      window.matchMedia('(min-width: 1201px)').addEventListener('change', event => { if (event.matches) setOpen(false); });
+    });
+  </script>
   <style>
-    /* Styles propres à cette page (le reste vient de /css/style.css) */
-    .page-intro{padding-block:72px 24px}
-    .page-intro h1{font-size:clamp(36px,5vw,56px);line-height:1.1;letter-spacing:-.04em;margin-top:18px;max-width:900px}
-    .page-intro h1 span{color:var(--green-dark)}
-    .page-intro .premium-lead{max-width:760px}
-    .breadcrumb{font-size:14px;margin-bottom:8px}
+    /* Styles propres à cette page (tout le reste vient de /css/style.css, comme l'accueil) */
+    .page-intro .page-intro-inner{padding-block:clamp(56px,6.5vw,96px)}
+    .page-intro h1{margin-top:22px;max-width:820px;font-size:clamp(40px,5vw,66px);line-height:1.06;letter-spacing:-.06em}
+    .page-intro h1>span{color:var(--green)}
+    .page-intro .premium-lead{max-width:640px}
+    .breadcrumb{font-size:14px;color:var(--muted);margin-bottom:22px}
     .breadcrumb a{color:var(--green-dark)}
-    .page-problem{max-width:760px}
-    .page-problem p{margin-top:16px;line-height:1.8}
-    .page-cta{text-align:center;padding-block:56px 72px}
-    .page-cta .premium-cta{max-width:640px;margin-inline:auto}
+    .page-problem-text>p{font-size:15px;line-height:1.85;max-width:520px}
+    .page-problem-text>p+p{margin-top:16px}
+    .page-cta{padding-top:0}
+    .page-cta .premium-cta{text-align:center;padding:clamp(34px,4.5vw,56px) clamp(21px,4vw,48px)}
+    .page-cta .premium-cta>p:not([class]){margin-inline:auto}
+    .page-cta .premium-honest{justify-content:center;max-width:640px;margin-inline:auto}
     .page-links{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:center;margin-top:18px}
+    @media(max-width:700px){
+      .page-intro h1{font-size:clamp(36px,10vw,46px)}
+      .page-problem-text>p{font-size:14px}
+      .page-cta .premium-honest{text-align:left}
+    }
   </style>
 </head>
 <body>
@@ -172,11 +197,14 @@
       <a class="brand" href="/" aria-label="Leadoly, accueil"><span class="brand-dot" aria-hidden="true"></span><span>Lead<span class="brand-accent">oly</span></span></a>
       <nav class="desktop-nav" aria-label="Navigation principale"><a href="/#premium">Clé en main</a><a href="/#premium-how-title">Comment ça marche</a><a href="/#premium-guarantee-title">Garantie</a><a href="/#faq">FAQ</a><a href="/#contact-premium">Contact</a></nav>
       <a class="button button-small header-cta" href="/#contact-premium">Trouver des clients<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-controls="mobile-menu" aria-expanded="false" hidden><span></span><span></span></button>
     </div>
+    <nav class="mobile-menu container" id="mobile-menu" aria-label="Navigation mobile"><a href="/#premium">Prospection clé en main<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="/#premium-how-title">Comment ça marche<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="/#premium-guarantee-title">Garantie<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="/#faq">FAQ<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="/#contact-premium">Contact<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button" href="/#contact-premium">Trouver des clients</a></nav>
   </header>
   <main id="contenu" tabindex="-1">
-    <section class="premium-section page-intro" aria-labelledby="page-title">
-      <div class="container">
+    <section class="hero page-intro" aria-labelledby="page-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container page-intro-inner">
         <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="/">Leadoly</a> › Freelances et coachs</nav>
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>FREELANCES ET COACHS</p>
         <h1 id="page-title">Trouver des clients quand on est <span>freelance ou coach</span></h1>
@@ -185,11 +213,11 @@
     </section>
 
     <section class="content-section section-pad" aria-labelledby="probleme-title">
-      <div class="container page-problem">
-        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>LE PROBLÈME</p>
-        <h2 id="probleme-title">Votre métier, vous le maîtrisez. <br> <span>Trouver des clients, c’est autre chose.</span></h2>
-        <p>Quand on est freelance ou coach, on passe vite ses soirées à chercher des contacts, à écrire des messages et à relancer. C’est du temps en moins pour votre métier.</p>
-        <p>Et une liste de contacts ne suffit pas toujours : il faut encore écrire, relancer, répondre aux questions et caler le rendez-vous.</p>
+      <div class="container content-layout">
+        <div class="content-copy"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>LE PROBLÈME</p>
+        <h2 id="probleme-title">Votre métier, vous le maîtrisez. <br> <span>Trouver des clients, c’est autre chose.</span></h2></div>
+        <div class="page-problem-text"><p>Quand on est freelance ou coach, on passe vite ses soirées à chercher des contacts, à écrire des messages et à relancer. C’est du temps en moins pour votre métier.</p>
+        <p>Et une liste de contacts ne suffit pas toujours : il faut encore écrire, relancer, répondre aux questions et caler le rendez-vous.</p></div>
       </div>
     </section>
 
@@ -272,7 +300,7 @@
       </div>
     </section>
 
-    <section class="page-cta" aria-labelledby="cta-title">
+    <section class="content-section section-pad page-cta" aria-labelledby="cta-title">
       <div class="container">
         <aside class="premium-cta" id="contact-premium">
           <p class="premium-cta-eyebrow">Tarif sur demande</p>
